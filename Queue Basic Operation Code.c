@@ -1,45 +1,35 @@
 
 #include<stdio.h>
 
-int front = -1;
-int rear = -1;
+int queue[100], front=-1, rear=-1;
 
-int queue[100];
-
-int full(){
-    if (rear == 99)
-    {
+int isFull(){
+    if (rear == 99){
         return 1;
     }
-    else
-    {
+    else{
         return 0;
     }
 }
 
-int empty(){
-    if (front == -1 || front > rear)
-    {
+int isEmpty(){
+    if (front==-1 || front>rear){
         return 1;
     }
-    else
-    {
+    else{
         return 0;
     }
 }
 
 void enqueue(){
     int value;
-    if (full())
-    {
+    if (isFull()){
         printf("\nQueue Overflow!\n");
         return;
     }
-    if (front == -1)
-    {
+    if (front==-1){
         front = 0;
     }
-
     printf("\nEnter Value: ");
     scanf("%d",&value);
 
@@ -48,7 +38,7 @@ void enqueue(){
 }
 
 void dequeue(){
-    if (empty()) {
+    if (isEmpty()) {
         printf("\nQueue is empty!\n");
         return;
     }
@@ -61,26 +51,22 @@ void dequeue(){
 }
 
 void display(){
-    if (empty())
-    {
+    if (isEmpty()){
         printf("\nEmpty Queue\n");
         return;
     }
     printf("\nYour Current Queue:\n");
-    for (int i = front; i <= rear; i++)
-    {
+    for (int i = front; i <= rear; i++){
         printf("%d\n", queue[i]);
     }
 }
 
-int main()
-{
+int main(){
 
-    int option = 1;
+    int option=1, choice;
     printf ("\n\nQueue Operation\n\n");
     while (option)
     {
-        int choice;
         printf ("1. Enqueue\n");
         printf ("2. Dequeue\n");
         printf ("3. Display\n");
@@ -101,10 +87,11 @@ int main()
             display();
             break;
         case 4:
-            return;
+            return 1;
         }
         fflush (stdin);
-        printf ("\nDo you want to continue(Type 1/0)? : ");
+        
+        printf ("\nType 1 to continue or 0 to exit: ");
         scanf    ("%d", &option);
     }
 

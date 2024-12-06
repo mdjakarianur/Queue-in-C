@@ -64,15 +64,16 @@ void display(){
 int main(){
 
     int option=1, choice;
-    printf ("\n\nQueue Operation\n\n");
+    
     while (option)
     {
+        printf ("\nQueue Operation\n");
         printf ("1. Enqueue\n");
         printf ("2. Dequeue\n");
         printf ("3. Display\n");
         printf ("4. Exit\n");
 
-        printf ("\nEnter your choice: ");
+        printf ("Enter your choice: ");
         scanf   ("%d", &choice);
 
         switch (choice)
@@ -89,10 +90,6 @@ int main(){
         case 4:
             return 1;
         }
-        fflush (stdin);
-        
-        printf ("\nType 1 to continue or 0 to exit: ");
-        scanf    ("%d", &option);
     }
 
 return 0;

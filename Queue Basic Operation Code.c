@@ -62,10 +62,10 @@ void display(){
 }
 
 int main(){
-
-    int option=1, choice;
     
-    while (option)
+    int choice;
+    
+    while (1)
     {
         printf ("\nQueue Operation\n");
         printf ("1. Enqueue\n");

@@ -1,35 +1,27 @@
 #include<stdio.h>
-int front = -1;
-int rear = -1;
-int queue[5];
+
+int queue[5], front = -1, rear=-1;
+
 int isFull(){
-    if (rear == 4)
-    {
+    if (rear == 4){
         return 1;
-    }
-    else
-    {
+    }else{
         return 0;
     }
 }
 int isEmpty(){
-    if (front == -1 || front > rear)
-    {
+    if (front == -1 || front > rear){
         return 1;
-    }
-    else
-    {
+    }else{
         return 0;
     }
 }
 void enqueue(int data){
-    if (isFull())
-    {
+    if (isFull()){
         printf("Queue Overflow!\n");
         return;
     }
-    if (front == -1)
-    {
+    if (front == -1){
         front = 0;
     }
     rear = rear + 1;
@@ -42,16 +34,18 @@ void dequeue(){
     }
     printf("Dequeued: %d\n", queue[front]);
     front = front + 1;
+    
+    if(front>rear){
+        front = rear = -1;
+    }
 }
-void print(){
-    if (isEmpty())
-    {
+void display(){
+    if (isEmpty()){
         printf("Empty Queue\n");
         return;
     }
     printf("Your Current Queue:\n");
-    for (int i = front; i <= rear; i++)
-    {
+    for (int i = front; i <= rear; i++){
         printf("%d\n", queue[i]);
     }
 }
@@ -61,23 +55,9 @@ int main(){
     enqueue(3);
     enqueue(4);
     enqueue(5);
-    print();
+    display();
     dequeue();
-    print();
-    dequeue();
-    print();
-    enqueue(6);
-    print();
-    dequeue();
-    dequeue();
-    dequeue();
-    dequeue();
-    print();
-    enqueue(6);
-    enqueue(7);
-    enqueue(8);
-    enqueue(9);
-    enqueue(10);
-  
+    display();
+    
     return 0;
 }
